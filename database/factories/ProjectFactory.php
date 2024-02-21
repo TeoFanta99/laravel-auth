@@ -21,6 +21,7 @@ class ProjectFactory extends Factory
             'name' => fake() -> word(),
             'description' => fake() -> words(50, true),
             'author' => fake() -> name(),
+            'img'=> fake()->imageUrl(200, 300, 'animals', true, 'dogs'),
 
             // 'name' => ['Progetto 1', 'Progetto 2', 'Progetto 3'],
             // 'description' => ['Progetto di scienze', 'Progetto di Matematica', 'Progetto di Storia'],

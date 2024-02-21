@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <h1 class="text-center tit">MODFICA IL TUO PROGETTO</h1>
     <div class="container-form">
         <form action="{{ route('project.update', $project->id) }}" method="POST" class="card-form">
             @csrf
@@ -20,6 +21,10 @@
             <div class="form-group">
                 <label for="author">Autore:</label>
                 <input type="text" name="author" id="author" class="form-control" value="{{ $project->author }}">
+            </div>
+            <div class="form-group">
+                <label for="img">URL:</label>
+                <input type="text" name="img" id="img" class="form-control" value="{{ $project->img }}">
             </div>
 
             <div class="text-center">
