@@ -20,7 +20,7 @@
             @csrf
             @method('DELETE')
 
-            <input type="submit" value="X">
+            <input type="submit" value="DELETE">
         </form>
         @endauth
         
