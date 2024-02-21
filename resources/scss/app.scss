@@ -1,3 +1,66 @@
 
 @import '~bootstrap/scss/bootstrap';
 
+// gestione scss pagina wlecome/////////
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 18rem;
+    margin: 10px;
+}
+
+
+
+////////////////////////////////////////////
+
+/// gestione scss pagina edit /////////////
+
+.container-form {
+    display: flex;
+    justify-content: center;
+
+    height: 100vh;
+}
+
+.card-form {
+    width: 400px;
+    padding: 20px;
+    margin: 10px;
+}
+
+
+
+
+///////////////////////////////////////////
+
+
+
+/// gestione scss pagina create /////////////
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////
+
+
+/// gestione scss pagina show /////////////
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////
