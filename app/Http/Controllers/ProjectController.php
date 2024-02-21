@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Http\Requests\ProjectFormRequest;
 
 class ProjectController extends Controller
 {
@@ -16,7 +17,7 @@ class ProjectController extends Controller
     {
         $projects = Project :: all();
 
-        return view ('welcome', compact('projects'));
+        return view ('project.welcome', compact('projects'));
     }
 
     /**
@@ -26,7 +27,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view ('project.create');
     }
 
     /**
@@ -37,7 +38,17 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request -> all();
+
+        $newProject = new Project();
+
+        $newProject -> name = $data['name'];
+        $newProject -> description = $data['description'];
+        $newProject -> author = $data['author'];
+
+        $newProject -> save();
+
+        return redirect() -> route('project.show', $newProject -> id);
     }
 
     /**
@@ -48,7 +59,9 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = Project :: find($id);
+
+        return view('project.show', compact('project'));
     }
 
     /**
@@ -59,7 +72,9 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project :: find($id);
+
+        return view('project.edit', compact('project'));
     }
 
     /**
@@ -69,9 +84,19 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectFormRequest $request, $id)
     {
-        //
+        $project = Project :: find($id);
+
+        $data = $request -> all();
+
+        $project -> name = $data['name'];
+        $project -> description = $data['description'];
+        $project -> author = $data['author'];
+
+        $project -> save();
+
+        return redirect() -> route('project.show', $project -> id);
     }
 
     /**
