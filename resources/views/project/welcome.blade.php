@@ -13,7 +13,17 @@
         <a href="{{route('project.show', $project -> id)}}">
             {{$project -> name}}
         </a>
+        @auth
         <a href="{{route('project.edit', $project -> id)}}" class="mx-3">EDIT</a>
+        <form action="{{route('project.delete', $project -> id)}}" method="POST" class="d-inline-block">
+
+            @csrf
+            @method('DELETE')
+
+            <input type="submit" value="X">
+        </form>
+        @endauth
+        
     </li>
     @endforeach
    

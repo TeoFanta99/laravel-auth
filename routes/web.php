@@ -29,9 +29,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/project/create', [ProjectController :: class, 'create']) -> name('project.create');
     Route::post('/project', [ProjectController :: class, 'store']) -> name('project.store');
+
     Route::get('/project/{id}/edit', [ProjectController :: class, 'edit']) -> name('project.edit');
     Route::put('/project/{id}/edit', [ProjectController :: class, 'update']) -> name('project.update');
 
+    Route::delete('/project/{id}', [ProjectController :: class, 'destroy']) -> name('project.delete');
+    
 });
 
 Route::get('/project/{id}', [ProjectController :: class, 'show']) -> name('project.show');
